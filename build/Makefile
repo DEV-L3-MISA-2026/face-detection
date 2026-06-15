@@ -117,24 +117,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named app
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app
+.PHONY : app
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+app/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
+.PHONY : app/fast
+
+FaceDetector.o: FaceDetector.cpp.o
+.PHONY : FaceDetector.o
+
+# target to build an object file
+FaceDetector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceDetector.cpp.o
+.PHONY : FaceDetector.cpp.o
+
+FaceDetector.i: FaceDetector.cpp.i
+.PHONY : FaceDetector.i
+
+# target to preprocess a source file
+FaceDetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceDetector.cpp.i
+.PHONY : FaceDetector.cpp.i
+
+FaceDetector.s: FaceDetector.cpp.s
+.PHONY : FaceDetector.s
+
+# target to generate assembly for a file
+FaceDetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceDetector.cpp.s
+.PHONY : FaceDetector.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +166,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +174,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -161,7 +185,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
+	@echo "... app"
+	@echo "... FaceDetector.o"
+	@echo "... FaceDetector.i"
+	@echo "... FaceDetector.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
