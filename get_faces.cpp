@@ -5,11 +5,10 @@ using namespace cv;
 
 int main() {
 
-    int width = 1200;
-    int height = 600;
-    Mat img = imread("me.jpeg");
-    Mat gray, cropped;
+    int width = 1200, height = 600;
+    Mat img = imread("me.jpeg"), gray, cropped;
     std::vector<Rect> faces;
+
     CascadeClassifier face_cascade;
     face_cascade.load(
         "/usr/share/opencv2/haarcascades/haarcascade_frontalface_alt.xml"
@@ -30,6 +29,16 @@ int main() {
         std:: cout << "no faces deteced !" << std::endl;
     }
 
+    // adding some padding
+    int padding_w = 100, padding_h = 200;
+    Rect face = faces[0];
+
+    face.width += padding_w;
+    face.x -= padding_w/2; 
+    face.height += padding_h;
+    face.y -= padding_h/2;
+
+    cropped = img(face).clone();
     imwrite("output.jpeg", cropped);
     return 0;
 }

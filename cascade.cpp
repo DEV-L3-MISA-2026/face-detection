@@ -2,7 +2,6 @@
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
-// #include <opencv2/objdetect/face.hpp>
 #include <iostream>
 
 using namespace cv;
@@ -39,14 +38,13 @@ int main() {
 
         // process face detection
         cvtColor(frame, gray, COLOR_BGR2GRAY);
-        
         face_cascade.detectMultiScale(
             gray,
             faces,
             1.1,           // scaleFactor
             3,             // minNeighbors
             0,            // flags
-            Size(30, 30)  // min size 
+            Size(30, 30)  // min size
         );
 
         // draw faces
@@ -58,8 +56,6 @@ int main() {
         // Display frame
         imshow("Live", frame);
         if (waitKey(5) >= 0) break;
-
-        
     }
     
     return 0;
