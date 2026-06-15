@@ -1,6 +1,5 @@
 facial_detection:main.cpp
-	# compiling with opencv5 g++ main.cpp -o app -I/usr/include/opencv5/ -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_videoio -lopencv_objdetect
-	# opencv4
-	g++ main.cpp -o app `pkg-config --cflags --libs opencv4` -o app
+# ++ main.cpp -o app -I/usr/include/opencv5/ -L/usr/lib/opencv5/ -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -lopencv_videoio -lopencv_objdetect -lopencv_dnn
+	g++ auth.cpp -o app `pkg-config --cflags --libs opencv5` -o app
 run:
 	./app
