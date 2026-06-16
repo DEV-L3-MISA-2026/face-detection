@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceDetector.cpp" "CMakeFiles/app.dir/FaceDetector.cpp.o" "gcc" "CMakeFiles/app.dir/FaceDetector.cpp.o.d"
+  "/home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceRecognizer.cpp" "CMakeFiles/app.dir/FaceRecognizer.cpp.o" "gcc" "CMakeFiles/app.dir/FaceRecognizer.cpp.o.d"
   "/home/kukuna/korontana/projet/etude/S5/dev/facial_detection/main.cpp" "CMakeFiles/app.dir/main.cpp.o" "gcc" "CMakeFiles/app.dir/main.cpp.o.d"
   )
 

@@ -153,6 +153,30 @@ FaceDetector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceDetector.cpp.s
 .PHONY : FaceDetector.cpp.s
 
+FaceRecognizer.o: FaceRecognizer.cpp.o
+.PHONY : FaceRecognizer.o
+
+# target to build an object file
+FaceRecognizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceRecognizer.cpp.o
+.PHONY : FaceRecognizer.cpp.o
+
+FaceRecognizer.i: FaceRecognizer.cpp.i
+.PHONY : FaceRecognizer.i
+
+# target to preprocess a source file
+FaceRecognizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceRecognizer.cpp.i
+.PHONY : FaceRecognizer.cpp.i
+
+FaceRecognizer.s: FaceRecognizer.cpp.s
+.PHONY : FaceRecognizer.s
+
+# target to generate assembly for a file
+FaceRecognizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/FaceRecognizer.cpp.s
+.PHONY : FaceRecognizer.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... FaceDetector.o"
 	@echo "... FaceDetector.i"
 	@echo "... FaceDetector.s"
+	@echo "... FaceRecognizer.o"
+	@echo "... FaceRecognizer.i"
+	@echo "... FaceRecognizer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

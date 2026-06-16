@@ -8,8 +8,6 @@
 namespace fr {
     const std::vector<std::pair<int, int>> backend_target_pairs = {   // aliases for backend_id and target_id
         {cv::dnn::DNN_BACKEND_OPENCV, cv::dnn::DNN_TARGET_CPU},
-        {cv::dnn::DNN_BACKEND_CUDA,   cv::dnn::DNN_TARGET_CUDA},
-        {cv::dnn::DNN_BACKEND_CUDA,   cv::dnn::DNN_TARGET_CUDA_FP16},
         {cv::dnn::DNN_BACKEND_TIMVX,  cv::dnn::DNN_TARGET_NPU},
         {cv::dnn::DNN_BACKEND_CANN,   cv::dnn::DNN_TARGET_NPU}
     };
@@ -26,6 +24,7 @@ namespace fr {
             );
             cv::Mat GetFace(cv::Mat img);        // return the higher probability face, cropped
             cv::Mat GetNFaces(cv::Mat img, int max_faces);
+            cv::Mat GetMatFace(cv::Mat img);
         private:
             cv::Ptr<cv::FaceDetectorYN> face_detector;  // to put the yunet model
     };

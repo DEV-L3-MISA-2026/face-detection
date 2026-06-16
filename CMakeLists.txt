@@ -31,6 +31,7 @@ find_package(OpenCV 5 REQUIRED)
 add_executable(app 
     main.cpp 
     FaceDetector.cpp
+    FaceRecognizer.cpp
 )
 
 # Link the executable with the required OpenCV libraries and include paths

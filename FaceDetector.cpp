@@ -14,9 +14,7 @@ namespace fr {
         int target_id
     ) {
         this->face_detector = cv::FaceDetectorYN::create(
-            path_model,
-            "",
-            cv::Size(320, 320),  // we can change it later
+            path_model, "", cv::Size(320, 320),  // we can change it later
             conf_threshold,
             nms_threshold,
             1, // top K
@@ -33,13 +31,31 @@ namespace fr {
         cv::Mat faces;
         this->face_detector->detect(img, faces);
 
-        // crop it (remove into another image)
+        if (faces.empty() || faces.rows == 0) {
+            std::cout << "Aucun visage détecté sur l'image !" << std::endl;
+            return img; // Ou retourne une matrice vide cv::Mat() selon ce que tu préfères
+        }
+        // // crop it (remove into another image)
         int x = faces.at<float>(0, 0),
             y = faces.at<float>(0, 1),
-            width = faces.at<float>(0, 2),
-            height = faces.at<float>(0, 3);
-        cv::Mat cropped = img(cv::Rect(x, y, width, height)).clone();
-        
+            w = faces.at<float>(0, 2),
+            h = faces.at<float>(0, 3);
+
+        cv::Mat cropped = img(cv::Rect(x, y, w, h)).clone();
+        //std::cout << x << " " << y << " " << w << " " << h << " " << std::endl;
         return cropped;
+    }
+
+    cv::Mat FaceDetector::GetMatFace(cv::Mat img) {
+        this->face_detector->setInputSize(img.size());
+        cv::Mat faces;
+
+        this->face_detector->detect(img, faces);
+        if (faces.empty() || faces.rows == 0) {
+            std::cout << "Aucun visage détecté sur l'image !" << std::endl;
+            return img; // Ou retourne une matrice vide cv::Mat() selon ce que tu préfères
+        }
+
+        return faces;
     }
 }

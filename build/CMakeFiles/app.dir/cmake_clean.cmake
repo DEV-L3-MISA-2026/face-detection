@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/app.dir/FaceDetector.cpp.o"
   "CMakeFiles/app.dir/FaceDetector.cpp.o.d"
+  "CMakeFiles/app.dir/FaceRecognizer.cpp.o"
+  "CMakeFiles/app.dir/FaceRecognizer.cpp.o.d"
   "CMakeFiles/app.dir/main.cpp.o"
   "CMakeFiles/app.dir/main.cpp.o.d"
   "app"
