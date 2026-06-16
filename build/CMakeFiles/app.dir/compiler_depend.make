@@ -872,6 +872,7 @@ CMakeFiles/app.dir/FaceRecognizer.cpp.o: /home/kukuna/korontana/projet/etude/S5/
 
 CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/main.cpp \
   /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceDetector.h \
+  /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceRecognizer.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
