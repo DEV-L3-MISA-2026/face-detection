@@ -53,9 +53,8 @@ namespace fr {
         this->face_detector->detect(img, faces);
         if (faces.empty() || faces.rows == 0) {
             std::cout << "Aucun visage détecté sur l'image !" << std::endl;
-            return img; // Ou retourne une matrice vide cv::Mat() selon ce que tu préfères
+            return cv::Mat(); // <--- Retourner une matrice vide, c'est plus propre
         }
-
         return faces;
     }
 }
