@@ -378,4 +378,8 @@ CMakeFiles/app.dir/main.cpp.o: \
  /usr/local/include/opencv5/opencv2/video.hpp \
  /usr/local/include/opencv5/opencv2/video/tracking.hpp \
  /usr/local/include/opencv5/opencv2/video/background_segm.hpp \
- /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceRecognizer.h
+ /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceRecognizer.h \
+ /usr/include/c++/13/fstream \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc

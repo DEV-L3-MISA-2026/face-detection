@@ -907,6 +907,7 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -1011,6 +1012,7 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -1169,8 +1171,10 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -1306,6 +1310,10 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
   /usr/local/include/opencv5/opencv2/videoio.hpp
 
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
 /home/kukuna/korontana/projet/etude/S5/dev/facial_detection/FaceRecognizer.h:
 
 /usr/local/include/opencv5/opencv2/video/tracking.hpp:
@@ -1421,6 +1429,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
 /usr/local/include/opencv5/opencv2/core/async.hpp:
 
 /usr/local/include/opencv5/opencv2/calib.hpp:
+
+/usr/include/c++/13/fstream:
 
 /usr/local/include/opencv5/opencv2/flann/flann_base.hpp:
 
@@ -1845,6 +1855,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kukuna/korontana/projet/etude/S5/dev/facial
 /usr/local/include/opencv5/opencv2/core/cvstd_wrapper.hpp:
 
 /usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
 
 /usr/include/c++/13/typeinfo:
 

@@ -9,15 +9,12 @@ namespace fr {
         cv::Mat FaceRecognizer::GetCharacteristic(cv::Mat img) {
             cv::Mat faces = this->face_detector->GetMatFace(img);
             
-            // SÉCURITÉ : Si la matrice est vide, on ne fait rien et on quitte proprement
             if (faces.empty()) {
-                std::cerr << "Erreur : Impossible d'extraire les caractéristiques (aucun visage)." << std::endl;
+                std::cerr << "There is no face." << std::endl;
                 return cv::Mat(); 
             }
 
             cv::Mat aligned, features;
-            
-            // Maintenant row(0) est safe !
             face_recognizer->alignCrop(
                 img, 
                 faces.row(0),
@@ -28,8 +25,12 @@ namespace fr {
                 aligned, 
                 features
             );
-            
             return features;
         }
-}
 
+        bool FaceRecognizer::Compare(cv::Mat source, cv::Mat target) {
+            float cosin_score = this->face_recognizer->match(source, target, cv::FaceRecognizerSF::FR_COSINE);
+            
+            return cosin_score > 0.363;
+        }
+}

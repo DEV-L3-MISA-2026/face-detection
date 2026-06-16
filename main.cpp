@@ -1,30 +1,61 @@
 #include "FaceDetector.h"
 #include "FaceRecognizer.h"
+#include <fstream>
 
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
 
 
 int main() {
-    std::string model_path = "../model/face_detection_yunet_2023mar.onnx";
-    cv::Ptr<fr::FaceDetector> detector = cv::makePtr<fr::FaceDetector>(model_path, cv::Size(320, 320), 0.8, 0.4, fr::backend_target_pairs.at(0).first, fr::backend_target_pairs.at(0).second
-    );
+    cv::Ptr<fr::FaceDetector> face_detector = cv::makePtr<fr::FaceDetector>("../model/face_detection_yunet_2023mar.onnx", cv::Size(320, 320), 0.8, 0.4, fr::backend_target_pairs.at(0).first, fr::backend_target_pairs.at(0).second);
+    fr::FaceRecognizer face_recognizer(face_detector, "../model/face_recognition_sface_2021dec.onnx");
 
-    model_path =  "../model/face_recognition_sface_2021dec.onnx";
-    fr::FaceRecognizer face_recognizer(detector, model_path);
+    // consider it as a sample from the db
     cv::Mat img = cv::imread("../me.jpeg");
-    
-    cv::Mat test_faces = detector->GetMatFace(img);
-    
+    cv::Mat test_faces =face_detector->GetMatFace(img);
     cv::Mat characteristic = face_recognizer.GetCharacteristic(img);
 
-    int c = 0;
-    for (int y = 0; y < characteristic.rows; ++y) {
-        for (int x = 0; x < characteristic.cols; ++x) {
-            std::cout << characteristic.at<float>(y, x) << " ";
-            c++;
-        }
-    }
     
+    // getting stream from cam
+    cv::VideoCapture cap;
+    int device = 0;         // 0 = default cam
+    int api = cv::CAP_ANY;  // choose dynamically
+    cap.open(device, api);
+
+    if (!cap.isOpened()) {
+        std::cerr << " ERROR, unable to open stream " << device << std::endl;
+        return -1;
+    }
+    cv::Mat frame, current_car, face;
+    cv::Rect rect_face;
+    int x, y, w, h;
+    for(;;) {
+        cap.read(frame);
+        if(frame.empty())
+        {
+            std::cerr << "ERROR, blanck frame grabbed\n";
+            break; 
+        }
+
+        // process the recognition
+        cv::Mat face =face_detector->GetMatFace(frame);
+        current_car = face_recognizer.GetCharacteristic(frame);
+        if(!face.empty())
+        {
+            x = face.at<float>(0, 0);
+            y = face.at<float>(0, 1);
+            w = face.at<float>(0, 2);
+            h = face.at<float>(0, 3);
+            rect_face = cv::Rect(x, y, w, h);
+            if(face_recognizer.Compare(characteristic, current_car))
+                // draw green circle
+                rectangle(frame, rect_face, cv::Scalar(0, 255, 0), 2);
+            else
+                rectangle(frame, rect_face, cv::Scalar(0, 0, 255), 2);
+        }
+        
+        cv::imshow("Live", frame);
+        if (cv::waitKey(5) >= 0) break;
+    }
     return 0;
 }
