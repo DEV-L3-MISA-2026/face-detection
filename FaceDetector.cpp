@@ -33,7 +33,7 @@ namespace fr {
 
         if (faces.empty() || faces.rows == 0) {
             std::cout << "No face detected !" << std::endl;
-            return img; // Ou retourne une matrice vide cv::Mat() selon ce que tu préfères
+            return img; // Ou retourne une matrice vide
         }
         // // crop it (remove into another image)
         int x = faces.at<float>(0, 0),
@@ -53,7 +53,7 @@ namespace fr {
         this->face_detector->detect(img, faces);
         if (faces.empty() || faces.rows == 0) {
             std::cout << "Aucun visage détecté sur l'image !" << std::endl;
-            return cv::Mat(); // <--- Retourner une matrice vide, c'est plus propre
+            return cv::Mat(); // <--- Retourner une matrice vide
         }
         return faces;
     }

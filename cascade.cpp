@@ -3,7 +3,6 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
 #include <iostream>
-
 using namespace cv;
 
 int main() {
